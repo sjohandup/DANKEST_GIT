@@ -175,34 +175,17 @@ public class appointmentManager
 	
 	private static void sendMsg(PrintStream out, String msg, ArrayList<String> qList)
 	{
-		out.write(27);
-		out.println("[2J");
-		out.write(27);
-		out.print("[37m");
-		out.write(27);
-		out.println("[5;5HWelcome to your very own Appointment Manager");
-		out.write(27);
-		out.println("[6;0H=====================================================");
-		out.write(27);
-		out.print("[7;5H");
-		out.write(27);
-		out.println("[33m"+msg);
+		out.println("Welcome to your very own Appointment Manager");
+		out.println("=====================================================");
+		out.println(msg);
 		if(qList != null)
 		{
 			for(int i=0; i < qList.size(); i++)
 			{
-				out.write(27);
-				out.print("["+(10+i)+";0H");
-				
-				out.write(27);
-				out.print("[34m"+qList.get(i));
-				
-				out.write(27);
-				out.println("[0m");
+				out.print((10+i));
+				out.print(qList.get(i));
 			}
 		}
-		out.write(27);
-		out.print("[0m");
 		out.flush();
 		sendMsgServerSide(msg, qList);
 	}
@@ -222,39 +205,16 @@ public class appointmentManager
 	
 	private static void drawMenu(PrintStream out)
 	{
-		//build & send Menu to client
-		out.write(27);
-		out.println("[2J");
-		out.write(27);
-		out.print("[37m");
-		out.write(27);
-		out.println("[5;5HWelcome to your very own Appointment Manager");
-		out.write(27);
-		out.println("[6;0H=====================================================");
-		out.write(27);
-		out.print("[34m");
-		out.write(27);
-		out.println("[7;5HWhat would you like to do?");
-		out.write(27);
-		out.print("[36m");
-		out.write(27);
-		out.println("[8;5H1. View your appointments");
-		out.write(27);
-		out.println("[9;5H2. Add a new appointment");
-		out.write(27);
-		out.println("[10;5H3. Update an appointment");
-		out.write(27);
-		out.println("[11;5H4. Remove appointment");
-		out.write(27);
-		out.println("[12;5H5. Search appointment");
-		out.write(27);
-		out.println("[13;5H6. Exit server");
-		out.write(27);
-		out.print("[37m");
-		out.write(27);
-		out.println("[14;0H=====================================================");
-		out.write(27);
-		out.print("[0m");
+		out.println("Welcome to your very own Appointment Manager");
+		out.println("=====================================================");
+		out.println("What would you like to do?");
+		out.println("1. View your appointments");
+		out.println("2. Add a new appointment");
+		out.println("3. Update an appointment");
+		out.println("4. Remove appointment");
+		out.println("5. Search appointment");
+		out.println("6. Exit server");
+		out.println("=====================================================");
 		out.flush();
 		drawMenuServerSide();
 	}
@@ -280,8 +240,7 @@ public class appointmentManager
 		
 		queryList.add("1. Back to main Menu");
 		queryList.add("2. Exit server");
-		
-		//display(msg);
+
 		sendMsg(out, msg, queryList);
 		
 		try
@@ -317,8 +276,7 @@ public class appointmentManager
 		
 		//getting new date
 		queryList.add("What is the Date of the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, msg, queryList);
 		
 		try {
@@ -334,8 +292,7 @@ public class appointmentManager
 		queryList.clear();
 		//getting new time
 		queryList.add("What is the Time of the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, aptString, queryList);
 		
 		try {
@@ -351,8 +308,7 @@ public class appointmentManager
 		queryList.clear();
 		//getting new with
 		queryList.add("With whoom is the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, aptString, queryList);
 		
 		try {
@@ -382,8 +338,7 @@ public class appointmentManager
 		
 		//getting new date
 		queryList.add("What is the Date of the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, msg, queryList);
 		
 		try {
@@ -400,8 +355,7 @@ public class appointmentManager
 		queryList = appointments.view();
 		//getting new time
 		queryList.add("What is the Time of the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, aptString, queryList);
 		
 		try {
@@ -418,8 +372,7 @@ public class appointmentManager
 		queryList = appointments.view();
 		//getting new with
 		queryList.add("With whoom is the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, aptString, queryList);
 		
 		try {
@@ -449,8 +402,7 @@ public class appointmentManager
 		
 		//getting new date
 		queryList.add("What is the Date of the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, msg, queryList);
 		
 		try {
@@ -467,8 +419,7 @@ public class appointmentManager
 		queryList = appointments.view();
 		//getting new time
 		queryList.add("What is the Time of the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, aptString, queryList);
 		
 		try {
@@ -485,8 +436,7 @@ public class appointmentManager
 		queryList = appointments.view();
 		//getting new with
 		queryList.add("With whoom is the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, aptString, queryList);
 		
 		try {
@@ -554,8 +504,7 @@ public class appointmentManager
 		
 		//getting new date
 		queryList.add("What is the Date of the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, msg, queryList);
 		
 		try {
@@ -572,8 +521,7 @@ public class appointmentManager
 		queryList = appointments.view();
 		//getting new time
 		queryList.add("What is the Time of the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, aptString, queryList);
 		
 		try {
@@ -590,8 +538,7 @@ public class appointmentManager
 		queryList = appointments.view();
 		//getting new with
 		queryList.add("With whoom is the appointment?");
-		
-		//display(msg);
+
 		sendMsg(out, aptString, queryList);
 		
 		try {
@@ -614,8 +561,7 @@ public class appointmentManager
 			
 			//getting new date
 			queryList.add("What is the New Date of the appointment?");
-			
-			//display(msg);
+
 			sendMsg(out, msg, queryList);
 			
 			try {
@@ -632,8 +578,7 @@ public class appointmentManager
 			queryList = appointments.view();
 			//getting new time
 			queryList.add("What is the New Time of the appointment?");
-			
-			//display(msg);
+
 			sendMsg(out, aptString, queryList);
 			
 			try {
@@ -650,8 +595,7 @@ public class appointmentManager
 			queryList = appointments.view();
 			//getting new with
 			queryList.add("With whoom is the New appointment?");
-			
-			//display(msg);
+
 			sendMsg(out, aptString, queryList);
 			
 			try {
@@ -680,8 +624,7 @@ public class appointmentManager
 		queryList.clear();
 		queryList.add("1. Back to main Menu");
 		queryList.add("2. Exit server");
-		
-		//display(msg);
+
 		sendMsg(out, msg, queryList);
 		
 		try
@@ -708,36 +651,3 @@ public class appointmentManager
 		return false;
 	}
 }
-
-
-
-
-
-
-
-/*
-	
-	private void printHeader(PrintWriter out)
-	{
-		String serverName = "EchoServer";
-		out.println
-			("HTTP/1.0 200 OK\r\n" +
-			"Server: " + serverName + "\r\n" +
-			"Content-Type: text/html\r\n" +
-			"\r\n" +
-			"<HTML>\n" +
-			"<!DOCTYPE HTML PUBLIC " +
-			"\"-//W3C//DTD HTML 4.0 Transitional//EN\">\n" +
-			"<HEAD>\n" +
-			" <TITLE>" + serverName + " Results</TITLE>\n" +
-			"</HEAD>\n" +
-			"\n" +
-			"<BODY BGCOLOR=\"#FDF5E6\">\n" +
-			"<H1 ALIGN=\"CENTER\">" + serverName +
-			" Results</H1>\n" +
-			"Here is the request line and request headers\n" +
-			"sent by your browser:\n" +
-			"<PRE>"
-		);
-	}
-*/
