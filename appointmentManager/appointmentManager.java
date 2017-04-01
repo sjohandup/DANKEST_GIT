@@ -144,34 +144,27 @@ public class appointmentManager
 		out.flush();
 		*/
 		
-		String serverName = "EchoServer";
 		out.println
-			("HTTP/1.0 200 OK\r\n" +
-			"Server: " + serverName + "\r\n" +
+			("HTTP/1.1 200 OK\r\n" +
+			"Server: javaServer (windows NT 10.0) mod_auth_pam/1.1.1 \r\n" +
+			"Vary: Accept-Encoding, User" + 
 			"Content-Type: text/html\r\n" +
 			"\r\n" +
-			"<HTML>\n" +
 			"<!DOCTYPE HTML PUBLIC " +
 			"\"-//W3C//DTD HTML 4.0 Transitional//EN\">\n" +
-			"<HEAD>\n" +
-			" <TITLE>" + serverName + " Results</TITLE>\n" +
-			"</HEAD>\n" +
-			"\n" +
-			"<BODY BGCOLOR=\"#FDF5E6\">\n" +
-			"<H1 ALIGN=\"CENTER\">" + serverName +
-			" Results</H1>\n" +
-			"Here is the request line and request headers\n" +
-			"sent by your browser:\n" +
-			"<PRE>"
+			"<html lang='en'>" +
+			"<head>\n" +
+			" <title>Appointment Manager</title>\n" +
+			"</head>\n" +
+			"<body>\n"
 		);
 	}
 	
 	private static void printHTMLFooter(PrintStream out)
 	{
 		out.println
-			("</PRE>\n" +
-			"</BODY>\n" +
-			"</HTML>\n"
+			("</body>\n" +
+			"</html>\n"
 		);
 	}
 	
